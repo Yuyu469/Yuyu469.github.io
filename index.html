@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宝格丽钻石珠宝系列 | 永恒璀璨</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --bulgari-green: #006b5b;
+            --bulgari-gold: #c4a747;
+            --dark-bg: #0a0a0a;
+            --light-text: #f5f5f5;
+            --gray-text: #cccccc;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background-color: rgba(10, 10, 10, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: var(--bulgari-gold);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--bulgari-green);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 30px;
+        }
+        
+        nav a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 300;
+            letter-spacing: 1px;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--bulgari-gold);
+        }
+        
+        /* 英雄区域 */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray-text);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        /* 系列展示区域 */
+        .series-section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 1px;
+            background-color: var(--bulgari-gold);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: var(--gray-text);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* 珠宝系列网格 */
+        .jewelry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .jewelry-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+        
+        .jewelry-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .jewelry-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .jewelry-item:hover .jewelry-img {
+            transform: scale(1.05);
+        }
+        
+        .jewelry-content {
+            padding: 25px;
+        }
+        
+        .jewelry-content h3 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            color: var(--bulgari-gold);
+        }
+        
+        .jewelry-content p {
+            color: var(--gray-text);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        /* 特色系列区域 */
+        .featured-section {
+            padding: 100px 0;
+            background-color: rgba(0, 107, 91, 0.05);
+        }
+        
+        .featured-jewelry {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 100px;
+        }
+        
+        .featured-jewelry:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .featured-img {
+            flex: 1;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .featured-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .featured-content {
+            flex: 1;
+        }
+        
+        .featured-content h3 {
+            font-size: 2.2rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: var(--bulgari-gold);
+        }
+        
+        .featured-content p {
+            color: var(--gray-text);
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #050505;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h4 {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 25px;
+            color: var(--bulgari-gold);
+            letter-spacing: 1px;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: var(--gray-text);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--bulgari-gold);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .featured-jewelry {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .featured-jewelry:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .jewelry-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">BVLGARI<span>®</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#collections">珠宝系列</a></li>
+                    <li><a href="#featured">特色系列</a></li>
+                    <li><a href="#about">关于宝格丽</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero" id="home">
+        <div class="hero-content animate">
+            <h1>宝格丽钻石珠宝系列</h1>
+            <p>自1884年以来，宝格丽以罗马的永恒优雅为灵感，创造出一系列令人惊叹的钻石珠宝。每一件作品都融合了意大利设计精髓与卓越工艺，彰显璀璨光芒与永恒魅力。</p>
+        </div>
+    </section>
+
+    <!-- 珠宝系列区域 -->
+    <section class="series-section container" id="collections">
+        <div class="section-title animate">
+            <h2>经典系列</h2>
+            <p>探索宝格丽标志性珠宝系列，每一件作品都讲述着独特的故事，展现着非凡的工艺与设计。</p>
+        </div>
+        
+        <div class="jewelry-grid">
+            <!-- 系列1 -->
+            <div class="jewelry-item animate">
+                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2067&q=80" 
+                     alt="BVLGARI BVLGARI系列" class="jewelry-img">
+                <div class="jewelry-content">
+                    <h3>BVLGARI BVLGARI系列</h3>
+                    <p>标志性的双品牌标识设计，灵感来自古罗马硬币。此系列将宝格丽名字镌刻于珠宝之上，展现品牌深厚的历史底蕴与现代魅力。</p>
+                </div>
+            </div>
+            
+            <!-- 系列2 -->
+            <div class="jewelry-item animate delay-1">
+                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                     alt="Divas' Dream系列" class="jewelry-img">
+                <div class="jewelry-content">
+                    <h3>Divas' Dream系列</h3>
+                    <p>灵感源自罗马卡拉卡拉浴场的扇形马赛克图案，精致的设计如同优雅舞者的裙摆，展现女性柔美与浪漫气质。</p>
+                </div>
+            </div>
+            
+            <!-- 系列3 -->
+            <div class="jewelry-item animate delay-2">
+                <img src="C:\Users\19917\Desktop\宝格丽\1.jpg" 
+                     alt="Serpenti系列" class="jewelry-img">
+                <div class="jewelry-content">
+                    <h3>Serpenti系列</h3>
+                    <p>蛇形设计是宝格丽最具代表性的符号之一，象征着智慧、重生与永恒。此系列以灵蛇为灵感，展现神秘而迷人的魅力。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色系列区域 -->
+    <section class="featured-section" id="featured">
+        <div class="container">
+            <div class="section-title animate">
+                <h2>特色系列</h2>
+                <p>探索宝格丽高级珠宝系列，感受非凡设计与卓越工艺的完美结合。</p>
+            </div>
+            
+            <!-- 特色系列1 -->
+            <div class="featured-jewelry animate">
+                <div class="featured-img">
+                    <img src="C:\Users\19917\Desktop\宝格丽\2.jpg" 
+                         alt="高级钻石项链">
+                </div>
+                <div class="featured-content">
+                    <h3>Magnifica高级珠宝系列</h3>
+                    <p>Magnifica系列代表着宝格丽高级珠宝的巅峰之作，每一件作品都采用最优质的钻石和宝石，由资深工匠耗时数百甚至数千小时精心制作而成。</p>
+                    <p>此系列的设计灵感来自罗马建筑的宏伟与对称美，将古典艺术与现代美学完美融合，创造出令人惊叹的珠宝艺术品。</p>
+                </div>
+            </div>
+            
+            <!-- 特色系列2 -->
+            <div class="featured-jewelry animate delay-1">
+                <div class="featured-img">
+                    <img src="C:\Users\19917\Desktop\宝格丽\3.jpg" 
+                         alt="Serpenti钻石手镯">
+                </div>
+                <div class="featured-content">
+                    <h3>Serpenti钻石高级定制</h3>
+                    <p>Serpenti高级定制系列将灵蛇的灵动与神秘提升到全新高度。每一件作品都采用复杂的镶嵌工艺，将钻石以独特的方式排列，模仿蛇鳞的天然纹理。</p>
+                    <p>从灵活的手镯到优雅的项链，每一件Serpenti高级珠宝都是精湛工艺与创新设计的结晶，展现佩戴者的独特个性与非凡品味。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer id="about">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>关于宝格丽</h4>
+                    <p>宝格丽成立于1884年，以其精湛的工艺、创新的设计和意大利卓越品质闻名世界。从罗马起源，如今已成为全球奢侈品行业的领导者。</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>珠宝系列</h4>
+                    <a href="#">BVLGARI BVLGARI</a>
+                    <a href="#">Serpenti</a>
+                    <a href="#">Divas' Dream</a>
+                    <a href="#">Magnifica高级珠宝</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>联系我们</h4>
+                    <p>预约参观宝格丽精品店，体验专属珠宝鉴赏服务。</p>
+                    <p>服务专线: 400-820-8850</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 宝格丽钻石珠宝展示. 本页面仅用于展示目的，所有产品图片来自Unsplash。</p>
+                <p>BVLGARI®是宝格丽公司的注册商标。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 滚动动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // 头部滚动效果
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.backgroundColor = 'rgba(10, 10, 10, 0.98)';
+                    header.style.backdropFilter = 'blur(10px)';
+                } else {
+                    header.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+                    header.style.backdropFilter = 'none';
+                }
+            });
+        });
+        // 在现有脚本的最后添加这些代码
+
+// 动态珠宝数据
+const jewelryCollections = [
+  {
+    id: 1,
+    name: "Fiorever系列",
+    description: "以花朵为灵感的设计，象征永恒的幸福与美丽。四片花瓣的设计优雅绽放，展现女性柔美气质。",
+    imageUrl: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+  },
+  {
+    id: 2,
+    name: "Parentesi系列",
+    description: "灵感来自罗马街道的铺路石图案，独特的互锁设计象征着永恒的连结与承诺。",
+    imageUrl: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+  },
+  {
+    id: 3,
+    name: "Diva's Dream系列",
+    description: "精致扇形图案，灵感来自古罗马马赛克艺术，展现女性的优雅与梦幻魅力。",
+    imageUrl: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2067&q=80"
+  }
+];
+
+// 动态添加珠宝项目的函数
+function addJewelryItems() {
+  const jewelryGrid = document.querySelector('.jewelry-grid');
+  
+  // 清空现有内容（可选，如果需要的话）
+  // jewelryGrid.innerHTML = '';
+  
+  jewelryCollections.forEach((item, index) => {
+    const jewelryItem = document.createElement('div');
+    jewelryItem.className = `jewelry-item animate delay-${index % 3}`;
+    
+    jewelryItem.innerHTML = `
+      <img src="${item.imageUrl}" alt="${item.name}" class="jewelry-img">
+      <div class="jewelry-content">
+        <h3>${item.name}</h3>
+        <p>${item.description}</p>
+        <button class="view-details" data-id="${item.id}">查看详情</button>
+      </div>
+    `;
+    
+    jewelryGrid.appendChild(jewelryItem);
+  });
+}
+
+// 2. 添加"新品推荐"横幅
+function addNewArrivalBanner() {
+  const heroSection = document.querySelector('.hero');
+  const banner = document.createElement('div');
+  banner.className = 'new-arrival-banner';
+  banner.style.cssText = `
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--bulgari-green), var(--bulgari-gold));
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    z-index: 1001;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: pulse 2s infinite;
+  `;
+  
+  banner.innerHTML = `
+    <h4 style="margin-bottom: 5px;">新品上市</h4>
+    <p style="font-size: 14px;">探索最新Serpenti系列</p>
+  `;
+  
+  banner.addEventListener('click', function() {
+    document.querySelector('#collections').scrollIntoView({ behavior: 'smooth' });
+  });
+  
+  document.body.appendChild(banner);
+  
+  // 添加脉动动画
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+// 3. 添加动态计数器（显示珠宝系列数量）
+function addCounterSection() {
+  const seriesSection = document.querySelector('.series-section');
+  const counterSection = document.createElement('div');
+  counterSection.className = 'counter-section';
+  counterSection.style.cssText = `
+    text-align: center;
+    margin: 60px 0;
+    padding: 40px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+  `;
+  
+  counterSection.innerHTML = `
+    <h3 style="color: var(--bulgari-gold); margin-bottom: 20px; font-size: 1.8rem;">我们的成就</h3>
+    <div class="counter-container" style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+      <div class="counter-item">
+        <h4 style="font-size: 2.5rem; color: var(--bulgari-gold); margin-bottom: 10px;"><span class="count" data-target="138">0</span>+</h4>
+        <p>年历史传承</p>
+      </div>
+      <div class="counter-item">
+        <h4 style="font-size: 2.5rem; color: var(--bulgari-gold); margin-bottom: 10px;"><span class="count" data-target="50">0</span>+</h4>
+        <p>珠宝系列</p>
+      </div>
+      <div class="counter-item">
+        <h4 style="font-size: 2.5rem; color: var(--bulgari-gold); margin-bottom: 10px;"><span class="count" data-target="1000">0</span>+</h4>
+        <p>匠心工艺</p>
+      </div>
+    </div>
+  `;
+  
+  seriesSection.parentNode.insertBefore(counterSection, seriesSection.nextSibling);
+  
+  // 数字滚动动画
+  function animateCounters() {
+    const counters = document.querySelectorAll('.count');
+    const speed = 200;
+    
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / speed;
+        
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 1);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      
+      updateCount();
+    });
+  }
+  
+  // 当计数器进入视口时开始动画
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+  
+  observer.observe(counterSection);
+}
+
+// 4. 添加动态时间显示
+function addDynamicTime() {
+  const header = document.querySelector('header .header-container');
+  const timeElement = document.createElement('div');
+  timeElement.id = 'current-time';
+  timeElement.style.cssText = `
+    color: var(--bulgari-gold);
+    font-size: 14px;
+    font-weight: 300;
+  `;
+  
+  header.appendChild(timeElement);
+  
+  // 更新时间函数
+  function updateTime() {
+    const now = new Date();
+    const options = { 
+      weekday: 'long', 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    };
+    timeElement.textContent = now.toLocaleDateString('zh-CN', options);
+  }
+  
+  updateTime();
+  setInterval(updateTime, 60000); // 每分钟更新一次
+}
+
+// 5. 添加加载更多功能
+function addLoadMoreButton() {
+  const jewelryGrid = document.querySelector('.jewelry-grid');
+  const loadMoreBtn = document.createElement('button');
+  loadMoreBtn.id = 'load-more';
+  loadMoreBtn.textContent = '加载更多系列';
+  loadMoreBtn.style.cssText = `
+    display: block;
+    margin: 50px auto 0;
+    padding: 12px 30px;
+    background-color: transparent;
+    color: var(--bulgari-gold);
+    border: 1px solid var(--bulgari-gold);
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+  `;
+  
+  loadMoreBtn.addEventListener('mouseover', function() {
+    this.style.backgroundColor = 'var(--bulgari-gold)';
+    this.style.color = 'var(--dark-bg)';
+  });
+  
+  loadMoreBtn.addEventListener('mouseout', function() {
+    this.style.backgroundColor = 'transparent';
+    this.style.color = 'var(--bulgari-gold)';
+  });
+  
+  loadMoreBtn.addEventListener('click', function() {
+    // 模拟加载更多数据
+    const newItems = [
+      {
+        name: "高级定制系列",
+        description: "完全个性化的珠宝定制服务，根据客户需求打造独一无二的珠宝作品。",
+        imageUrl: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+      },
+      {
+        name: "Heritage系列",
+        description: "复刻宝格丽历史经典设计，向品牌悠久传统致敬的限量系列。",
+        imageUrl: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+      }
+    ];
+    
+    newItems.forEach((item, index) => {
+      const jewelryItem = document.createElement('div');
+      jewelryItem.className = `jewelry-item animate`;
+      jewelryItem.style.animationDelay = `${0.1 * index}s`;
+      
+      jewelryItem.innerHTML = `
+        <img src="${item.imageUrl}" alt="${item.name}" class="jewelry-img">
+        <div class="jewelry-content">
+          <h3>${item.name}</h3>
+          <p>${item.description}</p>
+        </div>
+      `;
+      
+      jewelryGrid.appendChild(jewelryItem);
+    });
+    
+    // 移除按钮
+    this.remove();
+  });
+  
+  jewelryGrid.parentNode.appendChild(loadMoreBtn);
+}
+
+// 页面加载完成后执行
+document.addEventListener('DOMContentLoaded', function() {
+  // 在现有代码之后添加以下调用
+  
+  // 添加动态珠宝项目
+  addJewelryItems();
+  
+  // 添加新品推荐横幅
+  setTimeout(addNewArrivalBanner, 2000);
+  
+  // 添加计数器
+  addCounterSection();
+  
+  // 添加动态时间
+  addDynamicTime();
+  
+  // 添加加载更多按钮
+  addLoadMoreButton();
+  
+  // 添加滚动到顶部按钮
+  addScrollToTopButton();
+});
+
+// 6. 添加回到顶部按钮
+function addScrollToTopButton() {
+  const scrollButton = document.createElement('button');
+  scrollButton.id = 'scroll-to-top';
+  scrollButton.innerHTML = '<i class="fas fa-chevron-up"></i>';
+  scrollButton.style.cssText = `
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--bulgari-gold);
+    color: var(--dark-bg);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+  `;
+  
+  document.body.appendChild(scrollButton);
+  
+  scrollButton.addEventListener('mouseover', function() {
+    this.style.transform = 'scale(1.1)';
+  });
+  
+  scrollButton.addEventListener('mouseout', function() {
+    this.style.transform = 'scale(1)';
+  });
+  
+  scrollButton.addEventListener('click', function() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+  
+  // 显示/隐藏按钮
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 500) {
+      scrollButton.style.display = 'flex';
+      scrollButton.style.alignItems = 'center';
+      scrollButton.style.justifyContent = 'center';
+    } else {
+      scrollButton.style.display = 'none';
+    }
+  });
+}
+    </script>
+</body>
+</html>
